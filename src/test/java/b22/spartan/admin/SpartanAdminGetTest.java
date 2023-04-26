@@ -51,7 +51,7 @@ public class SpartanAdminGetTest {
         //if you send a request using SerenityRest, the response object
         //can be obtained from the method called lastResponse() without being saved separately
         //same with Response response object
-        System.out.println("Status code = " + SerenityRest.lastResponse().statusCode());
+        System.out.println("StatusCode() = " + lastResponse().statusCode());
 
         //print id
         //instead of response.path, we use lastResponse.path()
@@ -77,11 +77,9 @@ public class SpartanAdminGetTest {
 
         //Serenity way of assertion
 
-        Ensure.that("Status code is 200",validatableResponse -> validatableResponse.statusCode(200) );
-
-        Ensure.that("Content-type is JSON",vRes -> vRes.contentType(ContentType.JSON));
-
-        Ensure.that("Id is 15", vRes -> vRes.body("id",is(15)));
+       Ensure.that("Status code is 200",validatableResponse -> validatableResponse.statusCode(200));
+       Ensure.that("Content-type is JSON",vREs -> vREs.contentType(ContentType.JSON));
+       Ensure.that("id is 15",vRES -> vRES.body("id",is(15)));
 
 
 
